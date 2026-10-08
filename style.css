@@ -1,101 +1,288 @@
 :root {
-    --bg-color: #0b0f19;
-    --card-bg: #131a26;
+    --bg-color: #060913;
+    --card-bg: rgba(19, 26, 38, 0.7);
     --text-color: #e2e8f0;
     --accent-color: #38bdf8;
-    --terminal-bg: #05070c;
+    --terminal-bg: #03050a;
+    --neon-green: #4ade80;
+    --neon-pink: #f43f5e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: 'Courier New', Courier, monospace;
-    margin: 0;
     padding: 2rem;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* Filtros */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    margin-bottom: 3rem;
+    border-bottom: 1px dashed #334155;
+    padding-bottom: 2rem;
+}
+
+/* EFEITO GLITCH CYBERPUNK */
+.glitch {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    color: var(--text-color);
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--neon-pink);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--accent-color);
+    clip: rect(85px, 450px, 140px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(15px, 9999px, 66px, 0); }
+    100% { clip: rect(34px, 9999px, 55px, 0); }
+}
+
+@keyframes glitch-anim2 {
+    0% { clip: rect(70px, 9999px, 105px, 0); }
+    100% { clip: rect(12px, 9999px, 85px, 0); }
+}
+
+.subtitle {
+    color: #94a3b8;
+    margin: 0.5rem 0 1.5rem 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: #7dd3fc;
+    text-decoration: underline;
+}
+
+/* FILTROS */
 .filter-container {
     margin: 2rem 0;
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .filter-btn {
     background: transparent;
     border: 1px solid var(--accent-color);
     color: var(--text-color);
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.2rem;
+    font-family: inherit;
     cursor: pointer;
+    border-radius: 4px;
     transition: all 0.3s ease;
 }
 
 .filter-btn.active, .filter-btn:hover {
     background: var(--accent-color);
     color: var(--bg-color);
+    font-weight: bold;
 }
 
-/* Grid de Itens */
+/* APP DO QUIZ INTEGRADO */
+.quiz-section {
+    background: rgba(30, 41, 59, 0.5);
+    border: 2px solid var(--accent-color);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+    backdrop-filter: blur(8px);
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.quiz-opt-btn {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid #334155;
+    color: var(--text-color);
+    padding: 1rem;
+    cursor: pointer;
+    font-family: inherit;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.quiz-opt-btn:hover {
+    border-color: var(--accent-color);
+    background: rgba(56, 189, 248, 0.1);
+}
+
+/* GRID DE CONTEÚDO */
 .archive-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .archive-item {
     background: var(--card-bg);
     border: 1px solid #1e293b;
     padding: 1.5rem;
-    border-radius: 4px;
-    transition: transform 0.2s;
+    border-radius: 6px;
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, border-color 0.2s;
 }
 
 .archive-item:hover {
     transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.archive-item h3 {
+    margin: 0.5rem 0;
+    font-size: 1.3rem;
+}
+
+.archive-item p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
 }
 
 .tag {
     color: var(--accent-color);
     font-size: 0.8rem;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
-/* Terminal Simulativo */
+.project-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* TERMINAL INTERATIVO REAL */
 .terminal-section {
     background: var(--terminal-bg);
     border: 1px solid #334155;
     border-radius: 6px;
-    max-width: 600px;
-    margin: 2rem auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    margin-top: 3rem;
 }
 
 .terminal-header {
     background: #1e293b;
-    padding: 0.5rem;
+    padding: 0.6rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-}
+.dot { width: 12px; height: 12px; border-radius: 50%; }
 .red { background: #ef4444; }
 .yellow { background: #eab308; }
 .green { background: #22c55e; }
+.terminal-title { font-size: 0.8rem; color: #94a3b8; margin-left: 0.5rem; }
 
 .terminal-body {
-    padding: 1rem;
-    min-height: 100px;
+    padding: 1.2rem;
+    font-size: 0.9rem;
+    height: 250px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
-.prompt { color: #4ade80; }
-.cursor { animation: blink 1s infinite; }
-.hidden { display: none; }
+.terminal-history {
+    white-space: pre-wrap;
+    color: #a7f3d0;
+}
 
-@keyframes blink {
-    50% { opacity: 0; }
+.terminal-input-row {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.prompt { color: #4ade80; margin-right: 0.5rem; }
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: inherit;
+    flex-grow: 1;
+    outline: none;
+}
+
+/* SELETORES DE TEMA EXTRA */
+body.theme-green { --accent-color: #4ade80; }
+body.theme-pink { --accent-color: #f43f5e; }
+
+.hidden { display: none !important; }
+
+@media (max-width: 600px) {
+    body { padding: 1rem; }
+    .quiz-options { grid-template-columns: 1fr; }
 }
