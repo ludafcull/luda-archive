@@ -104,6 +104,7 @@ header {
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
+    padding: 0.5rem 0;
     transition: color 0.2s;
 }
 
@@ -165,9 +166,27 @@ header {
     transition: all 0.2s;
 }
 
-.quiz-opt-btn:hover {
+.quiz-opt-btn:hover:not(:disabled) {
     border-color: var(--accent-color);
     background: rgba(56, 189, 248, 0.1);
+}
+
+.quiz-opt-btn:disabled {
+    cursor: default;
+}
+
+.quiz-opt-btn:disabled:not(.correct):not(.wrong) {
+    opacity: 0.5;
+}
+
+.quiz-opt-btn.correct {
+    border-color: var(--neon-green);
+    background: rgba(74, 222, 128, 0.18);
+}
+
+.quiz-opt-btn.wrong {
+    border-color: var(--neon-pink);
+    background: rgba(244, 63, 94, 0.18);
 }
 
 /* GRID DE CONTEÚDO */
@@ -191,8 +210,12 @@ header {
 }
 
 .archive-item:hover {
-    transform: translateY(-5px);
     border-color: var(--accent-color);
+}
+
+/* só os cartões com link sobem ao passar o rato */
+.archive-item.has-link:hover {
+    transform: translateY(-5px);
 }
 
 .archive-item h3 {
@@ -282,8 +305,18 @@ body.theme-pink { --accent-color: #f43f5e; }
 
 .hidden { display: none !important; }
 
+/* MOBILE */
 @media (max-width: 600px) {
     body { padding: 1rem; }
     .quiz-options { grid-template-columns: 1fr; }
     .glitch { font-size: 2rem; }
+    /* 16px evita o zoom automático do navegador ao focar o campo */
+    .terminal-input { font-size: 16px; }
+}
+
+/* QUEM DESATIVA ANIMAÇÕES NO TELEMÓVEL */
+@media (prefers-reduced-motion: reduce) {
+    .glitch::before, .glitch::after { display: none; }
+    .archive-item, .filter-btn, .quiz-opt-btn { transition: none; }
+    .archive-item.has-link:hover { transform: none; }
 }
