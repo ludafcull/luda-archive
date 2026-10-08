@@ -19,7 +19,82 @@
                 <a href="https://wa.me" target="_blank">WhatsApp (+239 9883169) ↗</a>
             </nav>
         </header>
-        <!-- Estrutura principal do arquivo HTML contendo navegação, seção de quiz, grade de conteúdo e terminal interativo -->
+
+        <section class="filter-container">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="dev">Desenvolvimento</button>
+            <button class="filter-btn" data-filter="hq">HQs & Leituras</button>
+            <button class="filter-btn" data-filter="anime">Animes & Filmes</button>
+        </section>
+
+        <section class="quiz-section" id="quiz-app">
+            <div class="quiz-header">
+                <span class="tag">Interativo // Geek Quiz</span>
+                <h3 id="quiz-question">A carregar pergunta...</h3>
+            </div>
+            <div class="quiz-options" id="quiz-options"></div>
+        </section>
+
+        <main class="archive-grid">
+            <div class="archive-item" data-category="hq">
+                <div>
+                    <span class="tag">DC Comics</span>
+                    <h3>Harleen (Stjepan Šejić)</h3>
+                    <p>Uma brilhante desconstrução psicológica da queda de Harleen Quinzel.</p>
+                </div>
+            </div>
+            <div class="archive-item" data-category="hq">
+                <div>
+                    <span class="tag">DC Comics</span>
+                    <h3>Melhores do Mundo</h3>
+                    <p>A dinâmica clássica entre Batman e Superman na era moderna.</p>
+                </div>
+            </div>
+            <div class="archive-item" data-category="hq">
+                <div>
+                    <span class="tag">DC Comics</span>
+                    <h3>Jon Kent</h3>
+                    <p>Perspetiva revigorante sobre o legado do Superman.</p>
+                </div>
+            </div>
+            <div class="archive-item" data-category="anime">
+                <div>
+                    <span class="tag">Anime // Drama</span>
+                    <h3>Orange</h3>
+                    <p>Narrativa emocionante sobre viagem no tempo e amizade.</p>
+                </div>
+            </div>
+            <div class="archive-item" data-category="anime">
+                <div>
+                    <span class="tag">Anime // Fantasia</span>
+                    <h3>Sousou no Frieren</h3>
+                    <p>Obra-prima contemplativa após o fim da jornada do herói.</p>
+                </div>
+            </div>
+            <div class="archive-item" data-category="anime">
+                <div>
+                    <span class="tag">Anime // Psicológico</span>
+                    <h3>Tomodachi Game</h3>
+                    <p>Thriller psicológico sobre os limites da amizade.</p>
+                </div>
+            </div>
+        </main>
+
+        <section class="terminal-section">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="terminal-title">luda@archive: ~</span>
+            </div>
+            <div class="terminal-body" id="terminal">
+                <div class="terminal-history" id="terminal-history"></div>
+                <div class="terminal-input-row">
+                    <span class="prompt">luda@archive:$</span>
+                    <input type="text" id="terminal-input" class="terminal-input" autofocus autocomplete="off" spellcheck="false">
+                </div>
+            </div>
+        </section>
     </div>
     <script src="script.js"></script>
 </body>
