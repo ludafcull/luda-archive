@@ -5,91 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUDA // Archive</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://jsdelivr.net"></script>
 </head>
 <body>
-
-    <!-- Cabeçalho Principal -->
-    <header>
-        <h1>LUDA / archive</h1>
-        <p class="subtitle">Desenvolvedor Frontend & Entusiasta de Cultura Pop</p>
-        <nav class="social-links">
-            <a href="https://github.com" target="_blank">GitHub ↗</a>
-            <a href="mailto:ludacrisdrede@gmail.com">E-mail ↗</a>
-            <a href="https://wa.me" target="_blank">WhatsApp (+239 9883169) ↗</a>
-        </nav>
-    </header>
-
-    <!-- Filtros Dinâmicos -->
-    <section class="filter-container">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="dev">Desenvolvimento</button>
-        <button class="filter-btn" data-filter="hq">HQs & Leituras</button>
-        <button class="filter-btn" data-filter="anime">Animes & Filmes</button>
-    </section>
-
-    <!-- Grid de Conteúdo Integrado -->
-    <main class="archive-grid">
-        
-        <!-- Os projetos de desenvolvimento (dev) serão inseridos aqui automaticamente via API do GitHub -->
-
-        <!-- HQ 1 -->
-        <div class="archive-item" data-category="hq">
-            <span class="tag">DC Comics</span>
-            <h3>Harleen (Stjepan Šejić)</h3>
-            <p>Uma brilhante desconstrução psicológica da queda de Harleen Quinzel. A arte e o roteiro entregam uma das melhores origens da personagem.</p>
-        </div>
-
-        <!-- HQ 2 -->
-        <div class="archive-item" data-category="hq">
-            <span class="tag">DC Comics</span>
-            <h3>Melhores do Mundo</h3>
-            <p>A dinâmica clássica entre Batman e Superman redesenhada para a era moderna, focando no equilíbrio perfeito entre luz e trevas.</p>
-        </div>
-
-        <!-- HQ 3 -->
-        <div class="archive-item" data-category="hq">
-            <span class="tag">DC Comics</span>
-            <h3>Jon Kent</h3>
-            <p>Uma perspetiva revigorante sobre o legado do Superman através dos olhos do seu filho, enfrentando dilemas do mundo real.</p>
-        </div>
-
-        <!-- Anime 1 -->
-        <div class="archive-item" data-category="anime">
-            <span class="tag">Anime // Drama</span>
-            <h3>Orange</h3>
-            <p>Uma narrativa emocionante sobre viagem no tempo, arrependimentos e a importância de redes de apoio na juventude.</p>
-        </div>
-
-        <!-- Anime 2 -->
-        <div class="archive-item" data-category="anime">
-            <span class="tag">Anime // Fantasia</span>
-            <h3>Sousou no Frieren</h3>
-            <p>Uma obra-prima contemplativa sobre o que acontece após o fim da jornada do herói, explorando o conceito de tempo e conexões humanas.</p>
-        </div>
-
-        <!-- Anime 3 -->
-        <div class="archive-item" data-category="anime">
-            <span class="tag">Anime // Psicológico</span>
-            <h3>Tomodachi Game</h3>
-            <p>Um thriller psicológico tenso que testa os limites da amizade e da ganância através de jogos de apostas de alto risco.</p>
-        </div>
-
-    </main>
-
-    <!-- Seção do Terminal -->
-    <section class="terminal-section">
-        <div class="terminal-header">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-            <span class="terminal-title">luda@archive: ~</span>
-        </div>
-        <div class="terminal-body" id="terminal">
-            <p class="command-line"><span class="prompt">luda@archive:$</span> <span id="typed-command"></span><span class="cursor">|</span></p>
-            <div id="terminal-output" class="hidden"></div>
-        </div>
-    </section>
-
+    <div id="particles-js"></div>
+    <div class="content-wrapper">
+        <header>
+            <h1 class="glitch" data-text="LUDA / archive">LUDA / archive</h1>
+            <p class="subtitle">Desenvolvedor Frontend & Entusiasta de Cultura Pop</p>
+            <nav class="social-links">
+                <a href="https://github.com" target="_blank">GitHub ↗</a>
+                <a href="mailto:ludacrisdrede@gmail.com">E-mail ↗</a>
+                <a href="https://wa.me" target="_blank">WhatsApp (+239 9883169) ↗</a>
+            </nav>
+        </header>
+        <!-- Estrutura principal do arquivo HTML contendo navegação, seção de quiz, grade de conteúdo e terminal interativo -->
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
