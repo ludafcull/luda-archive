@@ -156,6 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 5. TERMINAL INTERATIVO
+    const terminalBody = document.getElementById("terminal");
     const terminalHistory = document.getElementById("terminal-history");
     const terminalInput = document.getElementById("terminal-input");
 
@@ -171,11 +172,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    if (terminalBody && terminalInput) {
+        terminalBody.addEventListener("click", () => terminalInput.focus());
+    }
+
     function executeTerminalCommand(cmd) {
         let output = `\nluda@archive:$ ${cmd}\n`;
 
         if (cmd === "") {
             terminalHistory.textContent += output;
+            terminalBody.scrollTop = terminalBody.scrollHeight;
             return;
         }
 
@@ -215,6 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         terminalHistory.textContent += output + "\n";
+        terminalBody.scrollTop = terminalBody.scrollHeight;
     }
 
     // INICIALIZAÇÃO
