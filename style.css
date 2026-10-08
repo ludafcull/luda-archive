@@ -285,4 +285,5 @@ body.theme-pink { --accent-color: #f43f5e; }
 @media (max-width: 600px) {
     body { padding: 1rem; }
     .quiz-options { grid-template-columns: 1fr; }
+    .glitch { font-size: 2rem; }
 }
